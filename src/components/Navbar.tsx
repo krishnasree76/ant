@@ -21,17 +21,15 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // ✅ Fixed Scroll Logic for Mobile
+  // ✅ Fixed scroll for mobile (waits for menu to close before moving)
   const scrollToSection = (id) => {
-    // First, close the mobile menu
     setMobileOpen(false);
 
-    // Small delay to allow the menu animation to finish and layout to stabilize
     setTimeout(() => {
       const element = document.getElementById(id);
       if (!element) return;
 
-      const navbarHeight = 70; // Adjust based on your actual navbar height
+      const navbarHeight = 70; 
       const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.scrollY - navbarHeight;
 
@@ -39,36 +37,37 @@ const Navbar = () => {
         top: offsetPosition,
         behavior: "smooth",
       });
-    }, 300); // 300ms matches your Framer Motion duration
+    }, 350); 
   };
 
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-background/95 backdrop-blur-md shadow-lg"
-          : "bg-background/90 backdrop-blur-sm"
+          ? "bg-background/95 backdrop-blur-md shadow-lg py-2"
+          : "bg-background/90 backdrop-blur-sm py-4"
       }`}
     >
-      <div className="container mx-auto flex items-center justify-between py-3 px-4">
+      <div className="container mx-auto flex items-center justify-between px-4">
         
-        {/* Logo */}
+        {/* Logo & Title Section */}
         <button
           onClick={() => scrollToSection("home")}
-          className="flex items-center gap-3 outline-none"
+          className="flex items-center gap-2 sm:gap-3 outline-none text-left"
         >
-          <img src={logo} alt="ANT 4CE Logo" className="h-12 w-auto" />
-          <div className="hidden sm:block text-left">
-            <span className="font-display text-lg font-bold text-foreground leading-tight block">
+          <img src={logo} alt="ANT 4CE Logo" className="h-10 w-auto sm:h-12" />
+          {/* Removed 'hidden sm:block' so title shows on mobile */}
+          <div className="flex flex-col">
+            <span className="font-display text-base sm:text-lg font-bold text-foreground leading-none">
               ANT <span className="text-accent">4</span>CE
             </span>
-            <span className="text-xs text-muted-foreground">
+            <span className="text-[10px] sm:text-xs text-muted-foreground mt-1 uppercase tracking-tighter sm:tracking-normal">
               Constructions & Engineers
             </span>
           </div>
         </button>
 
-        {/* Desktop Menu */}
+        {/* Desktop Navigation */}
         <div className="hidden lg:flex items-center gap-8">
           {navLinks.map((link) => (
             <button
@@ -88,9 +87,9 @@ const Navbar = () => {
           </a>
         </div>
 
-        {/* Mobile Toggle Button */}
+        {/* Mobile Menu Toggle */}
         <button
-          className="lg:hidden text-foreground p-2"
+          className="lg:hidden text-foreground p-1"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Toggle Menu"
         >
@@ -98,7 +97,7 @@ const Navbar = () => {
         </button>
       </div>
 
-      {/* Mobile Menu Overlay */}
+      {/* Mobile Menu Dropdown */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
@@ -106,14 +105,14 @@ const Navbar = () => {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="lg:hidden bg-background/95 backdrop-blur-md overflow-hidden border-t border-border"
+            className="lg:hidden bg-background border-t border-border overflow-hidden"
           >
-            <div className="flex flex-col px-6 py-6 gap-6">
+            <div className="flex flex-col px-6 py-8 gap-6">
               {navLinks.map((link) => (
                 <button
                   key={link.id}
                   onClick={() => scrollToSection(link.id)}
-                  className="text-left text-foreground/80 hover:text-accent transition-colors text-lg font-medium uppercase tracking-wider"
+                  className="text-left text-foreground/90 hover:text-accent transition-colors text-lg font-semibold uppercase tracking-widest"
                 >
                   {link.label}
                 </button>
@@ -121,9 +120,9 @@ const Navbar = () => {
 
               <a
                 href="tel:+918522005508"
-                className="flex items-center justify-center gap-2 bg-accent text-accent-foreground px-5 py-3 rounded-md font-bold text-sm w-full"
+                className="flex items-center justify-center gap-3 bg-accent text-accent-foreground px-5 py-4 rounded-md font-bold text-base w-full shadow-md"
               >
-                <Phone size={18} /> Call Now
+                <Phone size={20} /> Call Now
               </a>
             </div>
           </motion.div>
