@@ -21,23 +21,25 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // ✅ Perfect scroll function (mobile + desktop safe)
+  // ✅ Fixed Scroll Logic for Mobile
   const scrollToSection = (id) => {
-    const element = document.getElementById(id);
-    if (!element) return;
-
-    const navbarHeight = 80; // adjust if needed
-    const y =
-      element.getBoundingClientRect().top +
-      window.pageYOffset -
-      navbarHeight;
-
-    window.scrollTo({
-      top: y,
-      behavior: "smooth",
-    });
-
+    // First, close the mobile menu
     setMobileOpen(false);
+
+    // Small delay to allow the menu animation to finish and layout to stabilize
+    setTimeout(() => {
+      const element = document.getElementById(id);
+      if (!element) return;
+
+      const navbarHeight = 70; // Adjust based on your actual navbar height
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.scrollY - navbarHeight;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+    }, 300); // 300ms matches your Framer Motion duration
   };
 
   return (
@@ -53,10 +55,10 @@ const Navbar = () => {
         {/* Logo */}
         <button
           onClick={() => scrollToSection("home")}
-          className="flex items-center gap-3"
+          className="flex items-center gap-3 outline-none"
         >
           <img src={logo} alt="ANT 4CE Logo" className="h-12 w-auto" />
-          <div className="hidden sm:block">
+          <div className="hidden sm:block text-left">
             <span className="font-display text-lg font-bold text-foreground leading-tight block">
               ANT <span className="text-accent">4</span>CE
             </span>
@@ -66,7 +68,7 @@ const Navbar = () => {
           </div>
         </button>
 
-        {/* Desktop */}
+        {/* Desktop Menu */}
         <div className="hidden lg:flex items-center gap-8">
           {navLinks.map((link) => (
             <button
@@ -86,31 +88,32 @@ const Navbar = () => {
           </a>
         </div>
 
-        {/* Mobile Toggle */}
+        {/* Mobile Toggle Button */}
         <button
-          className="lg:hidden text-foreground"
+          className="lg:hidden text-foreground p-2"
           onClick={() => setMobileOpen(!mobileOpen)}
+          aria-label="Toggle Menu"
         >
           {mobileOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu Overlay */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
             className="lg:hidden bg-background/95 backdrop-blur-md overflow-hidden border-t border-border"
           >
-            <div className="flex flex-col px-6 py-4 gap-4">
+            <div className="flex flex-col px-6 py-6 gap-6">
               {navLinks.map((link) => (
                 <button
                   key={link.id}
                   onClick={() => scrollToSection(link.id)}
-                  className="text-left text-foreground/80 hover:text-accent transition-colors text-sm font-medium uppercase tracking-wider"
+                  className="text-left text-foreground/80 hover:text-accent transition-colors text-lg font-medium uppercase tracking-wider"
                 >
                   {link.label}
                 </button>
@@ -118,9 +121,9 @@ const Navbar = () => {
 
               <a
                 href="tel:+918522005508"
-                className="flex items-center gap-2 bg-accent text-accent-foreground px-5 py-2.5 rounded-md font-semibold text-sm w-fit"
+                className="flex items-center justify-center gap-2 bg-accent text-accent-foreground px-5 py-3 rounded-md font-bold text-sm w-full"
               >
-                <Phone size={16} /> Call Now
+                <Phone size={18} /> Call Now
               </a>
             </div>
           </motion.div>
