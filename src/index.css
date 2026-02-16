@@ -74,3 +74,9 @@
     @apply bg-clip-text text-transparent bg-gradient-to-r from-accent to-red-700;
   }
 }
+html, body {
+  overflow-x: hidden;
+}
+html {
+  scroll-behavior: smooth;
+}
