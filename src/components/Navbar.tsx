@@ -62,7 +62,7 @@ const Navbar = () => {
               ANT <span className="text-accent">4</span>CE
             </span>
             <span className="text-[10px] sm:text-xs text-muted-foreground mt-1 uppercase tracking-tighter sm:tracking-normal">
-              Constructions & Engineers
+              Constructions & Solar Services
             </span>
           </div>
         </button>
