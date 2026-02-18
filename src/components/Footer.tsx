@@ -1,5 +1,5 @@
 import logo from "@/assets/logo.png";
-
+import { Heart } from "lucide-react";
 const Footer = () => (
   <footer className="bg-background border-t border-border py-12">
     <div className="container mx-auto px-4">
@@ -54,8 +54,24 @@ const Footer = () => (
       </div>
 
       <div className="border-t border-border mt-10 pt-6 text-center text-muted-foreground text-sm">
-        © {new Date().getFullYear()} ANT 4CE Constructions, Consultants & Engineers. All rights reserved.
+        © {new Date().getFullYear()} ANT 4CE Constructions. All rights reserved.
       </div>
+      <div className="flex justify-center items-center gap-1">
+            Made with <Heart className="inline h-4 w-4 text-red-500 mx-1" /> by
+            <a
+              href="https://staffarc.in"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1 text-orange-600 hover:underline"
+            >
+              <img
+                src="https://www.staffarc.in/images/Staffarc-logo.png"
+                alt="StaffArc logo"
+                className="h-5 w-5 object-contain"
+              />
+              StaffArc
+            </a>
+          </div>
     </div>
   </footer>
 );
