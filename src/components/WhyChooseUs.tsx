@@ -94,7 +94,7 @@ const WhyChooseUs = () => {
             <div className="mt-6 grid sm:grid-cols-3 gap-6">
               <div>
                 <p className="text-xl font-bold text-accent">25 Years</p>
-                <p className="text-muted-foreground">Panel Performance Warranty</p>
+                <p className="text-muted-foreground">Solar Panel Performance Warranty</p>
               </div>
               <div>
                 <p className="text-xl font-bold text-accent">5–10 Years</p>
