@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { Sun, ShieldCheck, Banknote, Home, Building2, Zap } from "lucide-react";
 
-// ✅ Import Brand Logos
 import waaree from "@/assets/waaree.png";
 import emmvee from "@/assets/emmvee.png";
 import vikram from "@/assets/vikram.png";
@@ -13,36 +12,35 @@ const features = [
   {
     icon: <Sun size={28} />,
     title: "90% Focus on Solar Projects",
-    desc: "Our company majorly concentrates on solar energy solutions with complete expertise in rooftop solar systems.",
+    desc: "We specialize primarily in solar energy systems ensuring expert-level execution and performance.",
   },
   {
     icon: <ShieldCheck size={28} />,
-    title: "A-Grade Solar Panels Only",
-    desc: "We use only premium quality A-Grade panels ensuring maximum efficiency and long-term durability.",
+    title: "Premium A-Grade Solar Panels",
+    desc: "We install only top-quality panels for high efficiency, durability, and long-term output.",
   },
   {
     icon: <Home size={28} />,
-    title: "Residential Installations",
-    desc: "Complete rooftop solar systems for homes under PM Surya Ghar Scheme.",
+    title: "Residential Solar Systems",
+    desc: "Custom rooftop solar solutions designed for homes under government schemes.",
   },
   {
     icon: <Building2 size={28} />,
-    title: "Commercial Installations",
-    desc: "High-capacity solar solutions for commercial buildings and businesses.",
+    title: "Commercial Solar Installations",
+    desc: "High-capacity systems to reduce operational electricity costs for businesses.",
   },
   {
     icon: <Banknote size={28} />,
     title: "₹78,000 Government Subsidy",
-    desc: "Eligible customers can receive subsidy under PM Surya Ghar Muft Bijli Yojana.",
+    desc: "Eligible homeowners can receive subsidy benefits under PM Surya Ghar scheme.",
   },
   {
     icon: <Zap size={28} />,
-    title: "Net Metering & EMI Facility",
-    desc: "Save electricity bills with net metering and flexible EMI tenure from 3 to 10 years.",
+    title: "Net Metering & EMI Options",
+    desc: "Save more with net metering and flexible EMI tenure from 3 to 10 years.",
   },
 ];
 
-// ✅ Brand Logo Array
 const brands = [
   { name: "Waaree", logo: waaree },
   { name: "Emmvee", logo: emmvee },
@@ -56,7 +54,6 @@ const WhyChooseUs = () => {
   return (
     <section id="why-choose-us" className="py-20 bg-background scroll-mt-24">
       <div className="container mx-auto px-4">
-
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -65,7 +62,7 @@ const WhyChooseUs = () => {
           className="max-w-6xl mx-auto"
         >
           <h2 className="text-3xl md:text-5xl font-bold text-center text-foreground">
-            Why Choose <span className="text-accent">ANT 4CE</span> Solar Services
+            Why Choose <span className="text-accent">ANT 4CE</span>
           </h2>
 
           <div className="w-20 h-1 bg-accent mx-auto mt-4 rounded-full" />
@@ -91,48 +88,46 @@ const WhyChooseUs = () => {
           {/* Warranty Section */}
           <div className="mt-16 bg-accent/10 border border-accent/20 rounded-xl p-8 text-center">
             <h3 className="text-2xl font-bold text-foreground">
-              Solar Warranty & Support
+              Solar Warranty & Performance Assurance
             </h3>
 
             <div className="mt-6 grid sm:grid-cols-3 gap-6">
               <div>
                 <p className="text-xl font-bold text-accent">25 Years</p>
-                <p className="text-muted-foreground">Solar Panel Warranty</p>
+                <p className="text-muted-foreground">Panel Performance Warranty</p>
               </div>
               <div>
-                <p className="text-xl font-bold text-accent">5 Years</p>
+                <p className="text-xl font-bold text-accent">5–10 Years</p>
                 <p className="text-muted-foreground">Inverter Warranty</p>
               </div>
               <div>
                 <p className="text-xl font-bold text-accent">3–10 Years</p>
-                <p className="text-muted-foreground">Flexible EMI Tenure</p>
+                <p className="text-muted-foreground">Flexible EMI Options</p>
               </div>
             </div>
           </div>
 
-          {/* Brands Section */}
+          {/* Brands */}
           <div className="mt-20">
             <h3 className="text-2xl font-bold text-center text-foreground">
-              Installation Brands We Work With
+              Trusted Solar Brands We Install
             </h3>
 
             <div className="mt-10 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-6">
-  {brands.map((brand, index) => (
-    <div
-      key={index}
-      className="bg-secondary border border-border rounded-xl p-6 flex items-center justify-center shadow-sm hover:shadow-lg transition-all duration-300"
-    >
-      <img
-        src={brand.logo}
-        alt={brand.name}
-        className="h-12 md:h-14 object-contain transition-transform duration-300 hover:scale-110"
-      />
-    </div>
-  ))}
-</div>
-
+              {brands.map((brand, index) => (
+                <div
+                  key={index}
+                  className="bg-secondary border border-border rounded-xl p-6 flex items-center justify-center shadow-sm hover:shadow-lg transition-all duration-300"
+                >
+                  <img
+                    src={brand.logo}
+                    alt={brand.name}
+                    className="h-12 md:h-14 object-contain transition-transform duration-300 hover:scale-110"
+                  />
+                </div>
+              ))}
+            </div>
           </div>
-
         </motion.div>
       </div>
     </section>
