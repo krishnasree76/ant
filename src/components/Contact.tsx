@@ -120,18 +120,36 @@ const Contact = () => {
 
             {/* Social */}
             <div>
-              <h3 className="font-display text-xl font-bold mb-4">Follow Us</h3>
-              <div className="flex gap-4">
-                <a href="https://www.facebook.com/profile.php?id=61575485498498" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-accent transition-colors">
-                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
-                </a>
-                <a href="https://www.instagram.com/ant4_ce" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-accent transition-colors">
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5"/></svg>
-                </a>
-                <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-accent transition-colors">
-                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6zM2 9h4v12H2zM4 2a2 2 0 110 4 2 2 0 010-4z"/></svg>
-                </a>
-              </div>
+  <h3 className="font-display text-xl font-bold mb-4">Follow Us</h3>
+  <div className="flex gap-4">
+    
+    {/* Facebook */}
+    <a 
+      href="https://www.facebook.com/profile.php?id=100063959025639" 
+      target="_blank" 
+      rel="noreferrer" 
+      className="w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-accent transition-colors"
+    >
+      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
+      </svg>
+    </a>
+
+    {/* Instagram */}
+    <a 
+      href="https://www.instagram.com/ant4ce_constructions_solar_ser?igsh=amM3YTIyNnV4N2h3" 
+      target="_blank" 
+      rel="noreferrer" 
+      className="w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-accent transition-colors"
+    >
+      <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+        <rect x="2" y="2" width="20" height="20" rx="5"/>
+        <circle cx="12" cy="12" r="5"/>
+        <circle cx="17.5" cy="6.5" r="1.5"/>
+      </svg>
+    </a>
+
+  </div>
             </div>
           </motion.div>
         </div>
